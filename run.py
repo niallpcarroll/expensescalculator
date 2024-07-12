@@ -21,19 +21,20 @@ def give_date():
         print("Enter date of event.")
         print("Date should be in the format dd/mm/yyyy")
 
-        date = input("Enter date here:\n")
+        date = input("Enter date here: \n")
 
         if valid_data(date):
             print("Date is correct!")
             break
     return date
 
+
+
 def valid_data():
     """
     Check to ensure that date values are in the correct format.
     """        
-
-
+    
 def main():
     date = give_date()
 print("Welcome to your travel expenses calculator! Let's calculate and record your recent expenses.")
