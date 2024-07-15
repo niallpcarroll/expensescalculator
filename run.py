@@ -42,7 +42,7 @@ def give_location():
     """
     print("Please enter event location.")
     location_input = input(f"Enter event location here: \n")
-    print(f"The event location you entered is: {location_input}")
+    print(f"The event location you entered is: {location_input.capitalize()}")
 
 def give_event():
     """
@@ -51,7 +51,7 @@ def give_event():
     print("Please enter event type.")  
     print("For example: Wedding, Funeral, etc.")
     event_input = input(f"Enter event type here: \n")
-    print(f"The event type you entered is: {event_input}")
+    print(f"The event type you entered is: {event_input.capitalize()}")
 
 def give_fee():
     """
@@ -75,7 +75,7 @@ def travel_expenses():
     """
     Function to calculate travel expenses based on distance travelled.
     """
-    travel_expenses = int(travel_input) * 0.43
+    travel_expenses = [int(give_travel)] * 0.43
     print(travel_expenses)    
     
 give_date()
