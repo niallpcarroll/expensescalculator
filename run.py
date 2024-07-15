@@ -14,8 +14,7 @@ SHEET = GSPREAD_CLIENT.open('expenses_calculator')
 
 def give_date():
     """
-    Function to prompt user to enter date. Specify date format.
-    Loop to repeat if date format is invalid.
+    Function to prompt user to enter date. 
     """
    
     print("Enter date of event.")
@@ -24,7 +23,18 @@ def give_date():
     date_input = input("Enter date here: \n")
     print(f"The date you entered is {date_input}")
 
-        
+def validate_date(date_input):
+    """
+    Validate if date format is eight digits long.
+    """
+    while True:
+        date_input = input("Enter Date ddmmyyyy: ")
+        try:
+            d = datetime.stptime(date_input, '%d%m%Y')
+            break
+        except ValueError:
+            print("Invalid ddmmyyyy string, '{date_input}', try again")
+  
 
     
 give_date()
