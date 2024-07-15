@@ -17,26 +17,15 @@ def give_date():
     Function to prompt user to enter date. Specify date format.
     Loop to repeat if date format is invalid.
     """
-    while True:
-        print("Enter date of event.")
-        print("Date should be in the format dd/mm/yyyy")
+   
+    print("Enter date of event.")
+    print("Date should be in the format dd/mm/yyyy")
 
-        date = input("Enter date here: \n")
+    date_input = input("Enter date here: \n")
+    print(f"The date you entered is {date_input}")
 
-        if valid_data(date):
-            print("Date is correct!")
-            break
-    return date
+        
 
-
-
-def valid_data():
-    """
-    Check to ensure that date values are in the correct format.
-    """        
     
-def main():
-    date = give_date()
-print("Welcome to your travel expenses calculator! Let's calculate and record your recent expenses.")
-main()
+give_date()
 
