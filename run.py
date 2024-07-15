@@ -23,17 +23,18 @@ def give_date():
     date_input = input("Enter date here: \n")
     print(f"The date you entered is {date_input}")
 
-def validate_date(date_input):
+def validate_date(values):
     """
     Validate if date format is eight digits long.
     """
-    while True:
-        date_input = input("Enter Date ddmmyyyy: ")
-        try:
-            d = datetime.stptime(date_input, '%d%m%Y')
-            break
-        except ValueError:
-            print("Invalid ddmmyyyy string, '{date_input}', try again")
+    try:
+        [int(value) for value in values]
+        if len(values) !=8:
+            raise ValueError(
+                f"Date format must be ddmmyyyy, you provided {len(values)}"
+            )
+    except ValueError as e:
+        print(f"Invalid date: (e), try again")
   
 
     
