@@ -14,7 +14,8 @@ SHEET = GSPREAD_CLIENT.open('expenses_calculator')
 
 def give_date():
     """
-    Function to prompt user to enter date. 
+    Function to prompt user to enter date.
+    While loop to ask user to confirm data given
     """
    
     print("Enter date of event.")
@@ -22,6 +23,18 @@ def give_date():
 
     date_input = input("Enter date here: \n")
     print(f"The date you entered is: {date_input}")
+    correct_input = input("Is this correct? y/n \n")
+    while True:
+        if correct_input.lower() in ["yes", "y"]:
+            print("Adding date to spreadsheet...")
+            break
+        elif correct_input.lower() in ["no", "n"]: 
+            return give_date()  
+        else:
+            print("Invalid input. Please enter y or n.")
+            return 
+
+             
 
 def validate_date(values):
     """
