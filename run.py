@@ -26,7 +26,7 @@ def give_date():
     correct_input = input("Is this correct? y/n \n")
     while True:
         if correct_input.lower() in ["yes", "y"]:
-            print("Adding date to spreadsheet...")
+            print("Date input confirmed")
             break
         elif correct_input.lower() in ["no", "n"]: 
             return give_date()  
@@ -46,7 +46,7 @@ def give_location():
     correct_input = input("Is this correct? y/n \n")
     while True:
         if correct_input.lower() in ["yes", "y"]:
-            print("Adding location to spreadsheet...")
+            print("Location input confirmed")
             break
         elif correct_input.lower() in ["no", "n"]: 
             return give_location()  
@@ -62,6 +62,16 @@ def give_event():
     print("For example: Wedding, Funeral, etc.")
     event_input = input(f"Enter event type here: \n")
     print(f"The event type you entered is: {event_input.capitalize()}")
+    correct_input = input("Is this correct? y/n \n")
+    while True:
+        if correct_input.lower() in ["yes", "y"]:
+            print("Event input confirmed")
+            break
+        elif correct_input.lower() in ["no", "n"]: 
+            return give_event()  
+        else:
+            print("Invalid input. Please re-enter event type to continue.")
+            return give_event()
 
 def give_fee():
     """
@@ -71,6 +81,16 @@ def give_fee():
     print("Fees should be in Euro (€)")
     fee_input = input(f"The fee for this event is: € \n")
     print(f"The fee you have recorded for this event is: €{fee_input}")
+    correct_input = input("Is this correct? y/n \n")
+    while True:
+        if correct_input.lower() in ["yes", "y"]:
+            print("Fee input confirmed")
+            break
+        elif correct_input.lower() in ["no", "n"]: 
+            return give_fee()  
+        else:
+            print("Invalid input. Please re-enter correct fee to continue.")
+            return give_fee()
 
 def give_travel():
     """
@@ -80,12 +100,22 @@ def give_travel():
     print("Distance should be given in kilometers")
     travel_input = input(f"The distance travelled is: (km) \n")
     print(f"You travelled {travel_input} kms for this event")
+    correct_input = input("Is this correct? y/n \n")
+    while True:
+        if correct_input.lower() in ["yes", "y"]:
+            print("Distance travelled confirmed.")
+            break
+        elif correct_input.lower() in ["no", "n"]: 
+            return give_travel()  
+        else:
+            print("Invalid input. Please re-enter distance travelled to continue.")
+            return give_travel()
 
 def travel_expenses():
     """
     Function to calculate travel expenses based on distance travelled.
     """
-    travel_expenses = [int(give_travel)] * 0.43
+    travel_expenses = float(give_travel(travel_input)) * 0.43
     print(travel_expenses)    
     
 give_date()
