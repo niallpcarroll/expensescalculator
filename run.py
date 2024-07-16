@@ -99,6 +99,7 @@ def give_travel():
     print("Please enter the distance travelled for this event.")
     print("Distance should be given in kilometers")
     travel_input = input(f"The distance travelled is: (km) \n")
+    
     print(f"You travelled {travel_input} kms for this event")
     correct_input = input("Is this correct? y/n \n")
     while True:
@@ -111,12 +112,14 @@ def give_travel():
             print("Invalid input. Please re-enter distance travelled to continue.")
             return give_travel()
 
+
 def travel_expenses():
     """
     Function to calculate travel expenses based on distance travelled.
     """
-    travel_expenses = float(give_travel(travel_input)) * 0.43
-    print(travel_expenses)    
+    
+    travel_total = give_travel(travel_distance) * 0.43
+    print(travel_total)    
     
 give_date()
 give_location()
