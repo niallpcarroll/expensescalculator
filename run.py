@@ -34,21 +34,7 @@ def give_date():
             print("Invalid input. Please re-enter correct date to continue.")
             return give_date()
         
-
-             
-
-def validate_date(values):
-    """
-    Validate if date format is eight digits long.
-    """
-    try:
-        [int(value) for value in values]
-        if len(values) !=8:
-            raise ValueError(
-                f"Date format must be ddmmyyyy, you provided {len(values)}"
-            )
-    except ValueError as e:
-        print(f"Invalid date: (e), try again")
+          
   
 def give_location():
     """
@@ -57,6 +43,16 @@ def give_location():
     print("Please enter event location.")
     location_input = input(f"Enter event location here: \n")
     print(f"The event location you entered is: {location_input.capitalize()}")
+    correct_input = input("Is this correct? y/n \n")
+    while True:
+        if correct_input.lower() in ["yes", "y"]:
+            print("Adding location to spreadsheet...")
+            break
+        elif correct_input.lower() in ["no", "n"]: 
+            return give_location()  
+        else:
+            print("Invalid input. Please re-enter event location to continue.")
+            return give_location()
 
 def give_event():
     """
