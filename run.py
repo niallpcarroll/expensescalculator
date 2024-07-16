@@ -15,7 +15,7 @@ SHEET = GSPREAD_CLIENT.open('expenses_calculator')
 def give_date():
     """
     Function to prompt user to enter date.
-    While loop to ask user to confirm data given
+    While loop to ask user to confirm data given.
     """
    
     print("Enter date of event.")
@@ -39,6 +39,7 @@ def give_date():
 def give_location():
     """
     Function to prompt user to insert event location.
+    While loop to ask user to confirm data.
     """
     print("Please enter event location.")
     location_input = input(f"Enter event location here: \n")
@@ -57,6 +58,7 @@ def give_location():
 def give_event():
     """
     Function to prompt user to insert event name.
+    While loop to ask user to confirm data.
     """  
     print("Please enter event type.")  
     print("For example: Wedding, Funeral, etc.")
@@ -76,6 +78,7 @@ def give_event():
 def give_fee():
     """
     Function to prompt user to insert fee amount.
+    While loop to ask user to confirm data.
     """    
     print("Please enter the fee for this event.")
     print("Fees should be in Euro (€)")
@@ -95,6 +98,7 @@ def give_fee():
 def give_travel():
     """
     Function to prompt user to insert distance travelled in kilometers.
+    While loop to ask user to confirm data given.
     """    
     print("Please enter the distance travelled for this event.")
     print("Distance should be given in kilometers")
