@@ -31,8 +31,9 @@ def give_date():
         elif correct_input.lower() in ["no", "n"]: 
             return give_date()  
         else:
-            print("Invalid input. Please enter y or n.")
-            return 
+            print("Invalid input. Please re-enter correct date to continue.")
+            return give_date()
+        
 
              
 
