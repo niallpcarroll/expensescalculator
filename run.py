@@ -99,6 +99,7 @@ def give_travel():
     """
     Function to prompt user to insert distance travelled in kilometers.
     While loop to ask user to confirm data given.
+    Convert input to float and calculate travel expenses.
     """    
     print("Please enter the distance travelled for this event.")
     print("Distance should be given in kilometers")
@@ -111,24 +112,38 @@ def give_travel():
             print("Distance travelled confirmed.")
             break
         elif correct_input.lower() in ["no", "n"]: 
-            return give_travel()  
+            travel_input = float(input(f"The distance travelled is: (km) \n"))
+            correct_input = input("Is this correct? y/n \n")
         else:
             print("Invalid input. Please re-enter distance travelled to continue.")
-            return give_travel()
+            travel_input = float(input(f"The distance travelled is: (km) \n"))
+            correct_input = input("Is this correct? y/n \n")
+            return travel_input()
 
+    travel_dist = float(travel_input)   
+    travel_total = travel_dist * 0.43
+    print(f"Total travel expenses are €{travel_total}")
 
+def total_fee():
+    fee_total = float(give_fee(fee_input)) + travel_total
+    print(f"The total fee due is €{fee_total}")         
+
+"""
 def travel_expenses():
-    """
+    
     Function to calculate travel expenses based on distance travelled.
-    """
     
-    travel_total = give_travel(travel_distance) * 0.43
-    print(travel_total)    
     
+    travel_input = float(input(travel_input))
+    travel_total = (travel_input) * 0.43
+    print(f"Total travel expenses are: €{travel_total}")  
+"""
+
 give_date()
 give_location()
 give_event()
 give_fee()
 give_travel()
-travel_expenses()
+total_fee()
+#travel_expenses()
 
