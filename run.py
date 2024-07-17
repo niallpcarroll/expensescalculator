@@ -99,7 +99,8 @@ def give_fee():
         else:
             print("Invalid input. Please re-enter correct fee to continue.")
             return give_fee()
-    return fee_input
+    initial_fee = float(fee_input)
+    return initial_fee
 
 
 def give_travel():
@@ -118,13 +119,10 @@ def give_travel():
             print("Distance travelled confirmed.")
             break
         elif correct_input.lower() in ["no", "n"]:
-            travel_input = float(input(f"The distance travelled is: (km) \n"))
-            correct_input = input("Is this correct? y/n \n")
+            return give_travel
         else:
             print("Invalid input. Please re-enter distance travelled.")
-            travel_input = float(input(f"The distance travelled is: (km) \n"))
-            correct_input = input("Is this correct? y/n \n")
-            return travel_input()
+            return give_travel
 
     travel_dist = float(travel_input)
     travel_total = travel_dist * 0.43
@@ -133,18 +131,16 @@ def give_travel():
 
 
 def total_fee():
-    fee_total = float(travel_total) + float(fee_input)
-    print(f"The total fee due is €{fee_total}")
-    return fee_total
+    """
+    Function to calculate total expenses.
+    Adds initial fee to travel expenses.
+    Returns total amount rounded to two decimal places.
+    """
+    fee_total = travel_total + initial_fee
+    final_fee = round(fee_total,2)
+    print(f"The total fee due is €{final_fee}")
+    return final_fee
 
-
-"""
-def travel_expenses():
-    Function to calculate travel expenses based on distance travelled.
-    travel_input = float(input(travel_input))
-    travel_total = (travel_input) * 0.43
-    print(f"Total travel expenses are: €{travel_total}")
-"""
 
 def main():
     """
@@ -154,7 +150,7 @@ def main():
 give_date()
 give_location()
 give_event()
-fee_input = give_fee()
+initial_fee = give_fee()
 # give_fee()
 travel_total = give_travel()
 # give_travel()
