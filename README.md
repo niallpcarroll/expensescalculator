@@ -1,7 +1,7 @@
 # **Expenses Calculator**
   
 
-![bakestock ascii art](documentation/readme/main_image.png)  
+![Expenses Calculator](documentation/readme/main_image.png)  
 
 
 This Expenses Calculator is a Python command line interface (CLI) application designed to record work completed at various locations, which logs details such as date, location, work type, work fee, and distance travelled. Based on the user input it will then calculate travel expenses and the total fees due for travel and work completed.
@@ -136,62 +136,23 @@ Since this programme was designed primarily for my work as an organist, the even
 ![Event type screenshot](documentation)
   
 ### Fee 
-The user is prompted to enter the words 'CLEAR DATA' exactly as displayed if they wish to clear the Sales worksheet. Again, user input validation has been very important here to ensure no actions are executed if the user did not intend for them. Several steps of input are required to ensure no mistakes are made.
-<details>
-<summary>Clear Sales Figures Feature</summary>
-<img src = "documentation/readme/clear_f.png">
-</details>  
+The user is prompted enter the basic fee for the event being recorded. This step specifies that the amount is to be entered in Euro(€). The input is fed back to the user with the option to confirm or re-enter the amount. The fee will be returned as a float to account for decimals in the amount.
+![Fee input screenshot](documentation)
 
-### Batch Numbers  
-Batch numbers are displayed beneath the Batch menu banner. A yellow text warning alerts the user that the batch quantity consists of 12 items. 
-<details>
-<summary>View Batch Numbers Feature</summary>
-<img src = "documentation/readme/batch_nums_f.png">
-</details>   
+### Distance travelled and travel expenses 
+The next step asks the user to input the distance travelled for work in kilometers. Once the user has confirmed the distance, the function calculates the travel expenses by multiplying the distance travelled by the amount per kilometer (in this instance €0.43 per kilometer). This amount is returned as a float.
+![Distance and travel expenses](documentation)
 
-### View Batch Menu  
-Users are greeted with the Batch Menu providing several options.
-<details>
-<summary>Batch Menu Feature</summary>
-<img src = "documentation/readme/batch_menu_f.png">
-</details>   
+### Calculation of total fee due
+The next function calculates the total fee due by adding the initial fee entered and the fee for travel expenses. Since the travel expenses may run to several decimal places, this function includes a direction to round the amount to two decimal places.
+![Total fee due](documentation)
  
-### Add Item, Change Item, Update Item, Clear Item in Batches  
- Multiple options are provided to allow for customisation by the user. The Flavours/Items section is editable by the user to allow for different baked items everyday. Similar to making a to-do list in a notebook, the baker/user can update the required batch numbers at the end of the day, ready for the next baking day. When they complete a batch, these numbers can be edited back to zero to reflect this. This gives the baker real-time information on what is left to do every time they view the batch numbers.
-<details>
-<summary>Add, Change, Update, Clear Batch Item</summary>
-<img src = "documentation/readme/enter_newb_f.png">
-<img src = "documentation/readme/change_batch.png">
-</details>
-
-### Ingredient Inventory  
-Following a similar UI from the earlier Menu options, the Inventory displays the current stock levels. 
-<details>
-<summary>Ingredient Inventory Feature</summary>
-<img src = "documentation/readme/ing_view_f.png">
-</details>   
-
-### Inventory Menu  
-Users are greeted by an Inventory Menu providing several options.
-<details>
-<summary>Inventory Menu Feature</summary>
-<img src = "documentation/readme/ing_menu.png">
-</details> 
-  
-### Add Item, Change Item, Update Item, Clear Item in Inventory  
-These items are customisable with an 'Ingredient' section for displaying the ingredient name and unit in brackets. The 'Quantity' value is numerical only and may be updated when bakes have been processed. Similar to the Batch menu, the UX prompts, validates and acts on user input.
-<details>
-<summary>Add, Change, Update, Clear Inventory Item</summary>
-<img src = "documentation/readme/add_ing.png">
-<img src = "documentation/readme/change_ing.png">
-</details>  
+### Add data given to Google Sheets  
+ 
 
 ### Exit  
-Some users may like to have an option to feel that they have exited the program. Although it's function is very minor, I felt that it was important to include and to thank the user for using BakeStock.
-<details>
-<summary>Program Exit</summary>
-<img src = "documentation/readme/exit_f.png">
-</details>   
+In the event that the user wishes to record a further event and travel expenses, the option is provided to begin the application again. Otherwise, the user can choose to exit the application.
+![Exit](documentation)  
  
 
 -----  
@@ -200,10 +161,7 @@ Some users may like to have an option to feel that they have exited the program.
 
 ## Future Features  
 There are a few features that I feel could benefit from additions in the future:
-- The Sales Menu could benefit from a way of tracking business income in and out. I had hoped to include a Profits tracker, but through it's planning I realised that were a lot more moving pieces when money is involved and my Python skills need to develop further to meet this Scope.
-- I would like to add a Recipe section that keeps a digital record of the baker's most used recipes, for easy reference.
-- Through further learning I would like to provide a better way to display the Sales figures, perhaps through the library 'tabulate', to make it easier for the user to view the data.
-- I would like to revisit this project after I have graduated from the course and have more experience with Python, to refactor the code and apply the DRY(Don't Repeat Yourself) principle to reduce the length of my code.
+...
 
   
 # Technologies Used:
