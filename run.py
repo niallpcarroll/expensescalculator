@@ -142,9 +142,8 @@ def total_fee():
     return final_fee
 
 def collect_data():
-    all_data = [(date_input), (location_input), (event_input), (initial_fee), 
-    (travel_total), (final_fee)]
-    return all_data
+    all_data = [(date_input), (location_input.capitalize()), (event_input.capitalize()), (initial_fee), (travel_total), (final_fee)]
+    print(all_data)
 
 
 def update_worksheet(all_data, expenses_calculator):
@@ -163,9 +162,9 @@ def update_worksheet(all_data, expenses_calculator):
     
 
 def main():
-    """
-    Run all programme functions
-    """    
+       """
+       Run all programme functions
+       """
 
 date_input = give_date()
 location_input = give_location()
@@ -174,4 +173,6 @@ initial_fee = give_fee()
 travel_total = give_travel()
 final_fee = total_fee()
 all_data = collect_data()
-update_worksheet(all_data, expenses_calculator)
+# update_worksheet(all_data, expenses_calculator)
+
+
