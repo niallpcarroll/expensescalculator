@@ -189,7 +189,7 @@ I have created an additional file for my Manual Testing and Validation this can 
   
 # Creation & Deployment    
   
-The below steps to creating and setting up a new Python workspace and API credentials has been guided by and adapted from the [Code Institute's](https://codeinstitute.net/ie/) Python walkthrough project 'Love Sandwiches'. Please check each step is relevant to your project needs and change the data entered to suit it.
+The below steps to creating and setting up a new Python workspace and API credentials has been guided by and adapted from the [Code Institute's](https://codeinstitute.net/ie/) Python walkthrough project 'Love Sandwiches'.
 
 ### Creating a new repository 
 <details open>
@@ -255,34 +255,24 @@ To access the data in a Google Sheets worksheet using Python code, an API is req
 
 ### Deploying to Heroku  
 
-Heroku has been used to deploy this project as Python is used as a back-end language. To allow for accurate testing, I deployed the project to Heroku early on using Automatic Deployment to update the program everytime new code was pushed to my GitHub repository. Here are the steps that I followed to set my project up, guidance was provided by the [Code Institute's](https://codeinstitute.net/ie/) 'Love Sandwiches' project.     
+Heroku has been used to deploy this project as Python is used as a back-end language. I chose to deploy this project using Automatic Deployment in order to update the program each time I pushed new code to the GitHub repository. Here are the steps that I followed to set my project up:     
 
-1. Log in to [Heroku](https://id.heroku.com/login) or create an account if you are a new user.
-2. Once logged in, in the Heroku Dashboard, navigate to the '**New**' button in the top, right corner, and select '**Create New App**'.
-<details>
-<summary>Create new app</summary>
-<img src ="documentation/readme/heroku_1.png">
-</details>  
+1. Log in to [Heroku](https://id.heroku.com/login).
 
-3. Enter an app name and choose your region. Click '**Create App**'.
-<details>
-<summary>Enter app name</summary>
-<img src ="documentation/readme/heroku_2.png">
-</details>  
-  
+2. Navigate to the '**New**' button in the top, right corner, and select '**Create New App**'.
+
+3. Enter a unique app name and choose your region. Click '**Create App**'.
+
 4. In the Deploy tab, click on the '**Settings**', reach the '**Config Vars**' section and click on '**Reveal Config Vars**'. Here you will enter KEY:VALUE pairs for the app to run successfully. In KEY enter `CREDS`, in VALUE, paste in the text content of your `CREDS.json` file. Select '**Add**'.  
-5. Repeat this process with a KEY:VALUE pair of `PORT` and `8000`.
-6. In the Settings tab, in the Buildpack section, click '**Add Buildpack**', located near the bottom, right of the refreshed screen. One at a time, choose the '**Python**' pack, save changes, then choose the '**NodeJS**' buildpack and save changes. **NB: the Python buildpack _must_ be above the NodeJS buildpack.**
+
+5. In the Settings tab, in the Buildpack section, click '**Add Buildpack**', located near the bottom, right of the refreshed screen. One at a time, choose the '**Python**' pack, save changes, then choose the '**NodeJS**' buildpack and save changes. It is important that the Python buildpack is _above_ the NodeJs buildpack.
   
-<details>
-<summary>Choose Buildpacks</summary>
-<img src ="documentation/readme/heroku_bp.png">
-</details>  
-  
-7. Go to the '**Deploy**' tab and choose GitHub as the Deployment method.
-8. Search for the repository name, select the branch that you would like to build from, and connect it via the '**Connect**' button.
-9. Choose from '**Automatic**' or '**Manual**' deployment options, I chose the 'Automatic' deployment method. Click '**Deploy Branch**'.
-10. Once the waiting period for the app to build has finished, click the '**View**' link to bring you to your newly deployed site.
+6. Go to the '**Deploy**' tab and choose GitHub as the Deployment method.
+
+7. Search for the repository name, select the branch that you would like to build from, and connect it via the '**Connect**' button.
+
+8. Choose from '**Automatic**' or '**Manual**' deployment options. As mentioned above, I chose the automatic option for this project. Click '**Deploy Branch**'.
+10. Once the app has been built, click the '**View**' link to bring you to your newly deployed site.
 
   
 -----  
@@ -292,7 +282,7 @@ Heroku has been used to deploy this project as Python is used as a back-end lang
 A copy of the original repository can be made through GitHub. Please follow the below steps to fork this repository:  
 
 1. Navigate to GitHub and log in.  
-2. Once logged in, navigate to this repository using this link [BakeStock Repository](https://github.com/amylour/BakeStock).
+2. Once logged in, navigate to this repository using this link [Expenses Calculator](https://github.com/niallpcarroll/expensescalculator.git).
 3. Above the repository file section and to the top, right of the page is the '**Fork**' button, click on this to make a fork of this repository.
 4. You should now have access to a forked copy of this repository in your Github account.
 
@@ -303,7 +293,7 @@ A copy of the original repository can be made through GitHub. Please follow the 
 A local clone of this repository can be made on GitHub. Please follow the below steps:
 
 1. Navigate to GitHub and log in.
-2. The [BakeStock Repositiory](https://github.com/amylour/BakeStock) can be found at this location.
+2. The [Expenses Calculator](https://github.com/niallpcarroll/expensescalculator.git) can be found at this location.
 3. Above the repository file section, locate the '**Code**' button.
 4. Click on this button and choose your clone method from HTTPS, SSH or GitHub CLI, copy the URL to your clipboard by clicking the '**Copy**' button.
 5. Open your Git Bash Terminal.
@@ -317,13 +307,10 @@ A local clone of this repository can be made on GitHub. Please follow the below 
 
 ## Content References
    - gspread Documentation is used as reference material and guidance throughout the project for the manipulation of data between Python and Google Sheets: [gspread Docs](https://docs.gspread.org/en/latest/index.html)
-   - Code Institute's 'Love Sandwiches' project for Google Sheets API and Creds Set-Up: [Code Institute](https://codeinstitute.net/ie/)
+   - Code Institute's 'Love Sandwiches' project for Google Sheets API and Creds Set-Up and for instructions on deployment to Heroku: [Code Institute](https://codeinstitute.net/ie/)
    - 101 Computing for the type-text effect, 'screen sleep', and 'clear screen' effects used throughout the project: [Python typing text effect](https://www.101computing.net/python-typing-text-effect/)
-   - StackOverflow for providing a solution to display my Sales Data: [Adding tab for data formatting and display](https://stackoverflow.com/questions/4488570/how-do-i-write-a-tab-in-python)
-   - Python enumerate tutorial by Tech with Tim for searching through Google Sheet data: [Tech with Tim Youtube](https://www.youtube.com/watch?v=-MZiQaNI0QA)
-   - Python enumerate tutorial via Real Python for looping through data items: [Real Python](https://realpython.com/python-enumerate/)
-   - Python zip() Function for Parallel Iteration for display of Batch and Inventory items: [Real Python](https://realpython.com/python-zip-function/)
-   - Linuxhint for their Colorama tutorial and materials: [Linuxhint Colorama & Python](https://linuxhint.com/colorama-python/)  
+   - StackOverflow for helping me to figure out how to convert string from inputs to floats: [Python: Converting string to integer](https://stackoverflow.com/questions/78756277/python-converting-string-to-integer)
+  
 
 Additional reading materials:
    - [Analytics Vidhya](https://www.analyticsvidhya.com/blog/2020/07/read-and-update-google-spreadsheets-with-python/) for more information about Google Sheets and Python Automation.

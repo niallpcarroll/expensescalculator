@@ -144,6 +144,10 @@ def total_fee():
 
 
 def collect_data():
+    """
+    Collects all data items which will appear in Google Sheet.
+    Capitalize location and event data.
+    """
     all_data = [(date_input), (location_input.capitalize()),
                 (event_input.capitalize()),
                 (initial_fee), (travel_total), (final_fee)]
@@ -152,7 +156,9 @@ def collect_data():
 
 def update_worksheet(all_data):
     """
-    Collects data given and adds it to worksheet.
+    Tell the user which data is being added to datasheet.
+    Add the six data items to datasheet.
+    Inform user that data has been successfully added.
     """
     print("Adding the following data to datasheet:")
     print(f"Date: {date_input}")
