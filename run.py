@@ -18,6 +18,7 @@ def give_date():
     Function to prompt user to enter date.
     While loop to ask user to confirm data given.
     """
+    print("Welcome to your expenses calculator!")
     print("Enter date of event.")
     print("Date should be in the format dd/mm/yyyy")
 
