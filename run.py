@@ -141,8 +141,13 @@ def total_fee():
     print(f"The total fee due is €{final_fee}")
     return final_fee
 
+def collect_data():
+    all_data = [(date_input), (location_input), (event_input), (initial_fee), 
+    (travel_total), (final_fee)]
+    return all_data
 
-def update_worksheet(data, worksheet):
+
+def update_worksheet(all_data, expenses_calculator):
     """
     Collects data given and adds it to worksheet.
     """
@@ -153,10 +158,8 @@ def update_worksheet(data, worksheet):
     print(f"Fee:€ {initial_fee}")
     print(f"Travel expenses: € {travel_total}")
     print(f"Total fee: € {final_fee}")
-    data = [(date_input), (location_input), (event_input), (initial_fee), 
-    (travel_total), (final_fee)]
-    worksheet_to_update = SHEET.worksheet(expenses_calculator)
-    worksheet_to_update.append_row(data)
+    worksheet_to_update = SHEET.worksheet("expenses_calculator")
+    worksheet_to_update.append_row(all_data)
     
 
 def main():
@@ -170,4 +173,5 @@ event_input = give_event()
 initial_fee = give_fee()
 travel_total = give_travel()
 final_fee = total_fee()
-data = update_worksheet(data, worksheet)
+all_data = collect_data()
+update_worksheet(all_data, expenses_calculator)
