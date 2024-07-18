@@ -112,17 +112,17 @@ def give_travel():
     print("Please enter the distance travelled for this event.")
     print("Distance should be given in kilometers")
     travel_input = input(f"The distance travelled is: (km) \n")
-    print(f"You travelled {travel_input} kms for this event")
+    print(f"You travelled {travel_input}km for this event")
     correct_input = input("Is this correct? y/n \n")
     while True:
         if correct_input.lower() in ["yes", "y"]:
             print("Distance travelled confirmed.")
             break
         elif correct_input.lower() in ["no", "n"]:
-            return give_travel
+            return give_travel()
         else:
             print("Invalid input. Please re-enter distance travelled.")
-            return give_travel
+            return give_travel()
     
     travel_dist = float(travel_input)
     travel_total = travel_dist * 0.43
@@ -154,9 +154,9 @@ def update_worksheet(all_data):
     print(f"Date: {date_input}")
     print(f"Location: {location_input}")
     print(f"Event: {event_input}")
-    print(f"Fee:€ {initial_fee}")
-    print(f"Travel expenses: € {travel_total}")
-    print(f"Total fee: € {final_fee}")
+    print(f"Fee:€{initial_fee}")
+    print(f"Travel expenses: €{travel_total}")
+    print(f"Total fee: €{final_fee}")
     expenses_worksheet = SHEET.worksheet("expenses")
     expenses_worksheet.append_row(all_data)
     
