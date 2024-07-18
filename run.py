@@ -159,12 +159,13 @@ def update_worksheet(all_data):
     print(f"Total fee: €{final_fee}")
     expenses_worksheet = SHEET.worksheet("expenses")
     expenses_worksheet.append_row(all_data)
-    
+    print("Data successfully added to Google Sheet!")
+
 
 def main():
-       """
-       Run all programme functions
-       """
+    """
+    Run all programme functions
+    """
 
 date_input = give_date()
 location_input = give_location()
@@ -174,5 +175,6 @@ travel_total = give_travel()
 final_fee = total_fee()
 all_data = collect_data()
 update_worksheet(all_data)
+
 
 
