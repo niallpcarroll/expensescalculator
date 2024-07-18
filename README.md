@@ -66,7 +66,7 @@ The Expenses Calculator was created from this idea and fully planned out using [
 Based on the design of the flowchart, I created the various functions in my code, testing them at each stage, particularly ensuring that the user would not meet any dead ends if they did not enter a valid response or if they wished to re-enter a piece of data.
 
   
-I decided to use Google Sheets to store any data that was entered from the terminal. This 
+I decided to use Google Sheets to store any data that was entered from the terminal. In this instance the sheet has six colums which will take the data entered through the Python application, namely: Date, Location, Event, Fee, Travel Expenses, Total Fee.
 
   
 ## Flowchart   
