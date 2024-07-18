@@ -6,7 +6,7 @@
 
 This Expenses Calculator is a Python command line interface (CLI) application designed to record work completed at various locations, which logs details such as date, location, work type, work fee, and distance travelled. Based on the user input it will then calculate travel expenses and the total fees due for travel and work completed.
 
-View the live application here: [ExpensesCalculator](https://...herokuapp.com/)  
+View the live application here: [ExpensesCalculator](https://expenses-calculator-93f67e190108.herokuapp.com/)  
 
 Google Sheets (view only) [here.](https://docs.google.com/spreadsheets/d/1VC_oKD_-P18TzticsIXXsxaBuKRskCvY82OEt0-8TLo/edit?usp=sharing)
 
