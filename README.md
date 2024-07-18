@@ -1,10 +1,10 @@
 # **Expenses Calculator**
   
 
-![Expenses Calculator](documentation/readme/main_image.png)  
+![Expenses Calculator](documentation/welcome_message.png)  
 
 
-This Expenses Calculator is a Python command line interface (CLI) application designed to record work completed at various locations, which logs details such as date, location, work type, work fee, and distance travelled. Based on the user input it will then calculate travel expenses and the total fees due for travel and work completed.
+This Expenses Calculator is a Python command line interface (CLI) application designed to record work completed at various locations, which logs details such as date, location, work type, work fee, and distance travelled. Based on the user input it will then calculate travel expenses and the total fees due for travel and work completed. It will then transfer the data to the connected Google Sheet.
 
 View the live application here: [ExpensesCalculator](https://expenses-calculator-93f67e190108.herokuapp.com/)  
 
@@ -23,7 +23,7 @@ Google Sheets (view only) [here.](https://docs.google.com/spreadsheets/d/1VC_oKD
   * [Data Model - Google Sheets](#data-model---google-sheets)
   * [Design Choices](#design-choices)
 * [**Features**](#features)
-  * [How to Use BakeStock](#how-to-use-bakestock)
+  * [How to Use Expenses Calculator](#how-to-use-bakestock)
   * [Future Features](#future-features)
 * [**Technologies Used**](#technologies-used)
 * [**Libraries & Packages**](#libraries--packages)
@@ -60,7 +60,7 @@ The idea for this project came from my current work as an organist. Apart from m
  
 The Expenses Calculator was created from this idea and fully planned out using [Lucidchart](https://www.lucidchart.com/) to create a flowchart showing the logic and layout of the application. Once I had investigated the terminal that would run this application, I made sure to stay within it's restrictions and referred back to my flowchart frequently. My main goals for the application were:  
 
-- The first main goal was to have functions with inputs which would record user data
+- The first main goal was to have functions with inputs which would record user data.
 - The second important goal was to ensure that the application would accurately transfer the inputted data to the relevant spreadsheet.
 
 Based on the design of the flowchart, I created the various functions in my code, testing them at each stage, particularly ensuring that the user would not meet any dead ends if they did not enter a valid response or if they wished to re-enter a piece of data.
@@ -97,7 +97,7 @@ Throughout the building of the application I tested the functions individually a
 <br>  
 
 ## Data Model - Google Sheets
-The data provided by the user is inputted into the respective Google Sheets worksheets. The worksheet is accessed by myself as the only Editor but I include here a View only link to show the recorded data. [Google Worksheets](https://docs.google.com/spreadsheets/d/1VC_oKD_-P18TzticsIXXsxaBuKRskCvY82OEt0-8TLo/edit?usp=sharing)  
+The data provided by the user is inputted into a single Google Sheets worksheet. The worksheet is accessed by myself as the only Editor but I include here a View only link to show the recorded data. [Google Worksheets](https://docs.google.com/spreadsheets/d/1VC_oKD_-P18TzticsIXXsxaBuKRskCvY82OEt0-8TLo/edit?usp=sharing)  
 
 
    
@@ -118,37 +118,48 @@ The CLI code was provided through the use the the CI's [Python Essentials templa
 
 ### Launch  
 Once the application is opened, the user is greeted with a welcome message.
-![Main Menu screenshot](documentation)  
+
+![Main Menu screenshot](documentation/welcome_message.png)  
   
     
 ### Date Input   
 The user is prompted to enter the date of the work they wish to record. To ensure consistency when the data is transferred to the spreadsheet, they are reminded to enter the date in the format dd/mm/yyyy. Once the date has been inputted, a response will appear to tell the user what data they gave, followed by a y/n option to confirm and continue to the next step.
-![Date input screenshot](documentation)
+
+![Date input screenshot](documentation/date_input.png)
   
   
 ### Location 
-The user is then prompted to enter their work location. As above, they are given the option to confirm or amend the data.
-![Location screenshot](documentation)  
+The user is then prompted to enter their work location. The first letter will appear capitalized even if the user uses lower-case letters. As above, they are given the option to confirm or amend the data. 
+
+![Location screenshot](documentation/location_input.png)  
   
     
 ### Event Type 
-Since this programme was designed primarily for my work as an organist, the event type is recorded (e.g. funeral, wedding, choir rehearsal, recital). Once the user has inputted the data there is an opportunity to confirm or revise before moving on.
-![Event type screenshot](documentation)
+Since this programme was designed primarily for my work as an organist, the event type is recorded (e.g. funeral, wedding, choir rehearsal, recital). The first letter will appear capitalized even if the user uses lower-case letters. Once the user has inputted the data there is an opportunity to confirm or revise before moving on.
+
+![Event type screenshot](documentation/event_input.png)
   
 ### Fee 
 The user is prompted enter the basic fee for the event being recorded. This step specifies that the amount is to be entered in Euro(€). The input is fed back to the user with the option to confirm or re-enter the amount. The fee will be returned as a float to account for decimals in the amount.
-![Fee input screenshot](documentation)
+
+![Fee input screenshot](documentation/fee_input.png)
 
 ### Distance travelled and travel expenses 
 The next step asks the user to input the distance travelled for work in kilometers. Once the user has confirmed the distance, the function calculates the travel expenses by multiplying the distance travelled by the amount per kilometer (in this instance €0.43 per kilometer). This amount is returned as a float.
-![Distance and travel expenses](documentation)
+
+![Distance and travel expenses](documentation/travel_expenses.png)
 
 ### Calculation of total fee due
 The next function calculates the total fee due by adding the initial fee entered and the fee for travel expenses. Since the travel expenses may run to several decimal places, this function includes a direction to round the amount to two decimal places.
-![Total fee due](documentation)
+
+![Total fee due](documentation/total_data.png)
  
 ### Add data given to Google Sheets  
-Once the total fee due has been calculated, the following results are automatically added to Google Sheets: Date, Location, Event, Initial Fee, Travel Expenses, and Total Fee. 
+Once the total fee due has been calculated, the following results are automatically added to Google Sheets: Date, Location, Event, Initial Fee, Travel Expenses, and Total Fee. (See image above)
+
+The user can then confirm that the requisite data entered and calculated has been transferred to the corresponding Google Sheet:
+
+![Google Sheets Data](documentation/google_sheets_data.png)
 
  
 
@@ -178,14 +189,34 @@ There are a few features that I feel could benefit from additions in the future:
 <br>  
 
 # Libraries & Packages 
-   - **gspread** - gspread was imported and used to add, remove and manipulate data in the connected Google Sheets worksheets.  
+   - **gspread** - gspread was imported and used to add data to the connected Google Sheets worksheet.  
 
    - **google.oauth.service_account** - This library was used for the authentication needed to access the Google APIs for connecting the Service Account with the Credentials function. A `CREDS.json` file was generated from this with the details needed for the API to access my Google account which holds the Google Sheets worksheet containing the applications data. When deploying to Heroku, this information is then stored in the config var section to ensure the application will run.  
 
 
   
 # Testing  
-I have created an additional file for my Manual Testing and Validation this can be found here: [TESTING.md](/TESTING.md)
+At each stage of development of this application I tested how the functions worked and if they behaved as I wanted and expected.
+
+## Validation Testing
+The code was validated using the [Code Institute's](https://pep8ci.herokuapp.com/#) Pep8 Linter. No errors were found in its final testing. The results are displayed below:
+![Pep8 Linter Validation](documentation/pep8validation.png)
+
+User validation was checked at each stage. Any time user input is required, the type of input is specified. Furthermore, once the input has been confirmed, the application asks for confirmation that the inputted information is correct. If the user types "y" (or "yes" / "Yes") to this prompt, the next function will begin. If the user types "n" (or "no" / "No") to the prompt, they will have the opportunity to re-enter the requested data. Should the user type something other than a  yes/no response to the prompt, they will be alerted to an invalid input and prompted to re-enter the requested data.
+
+At each stage the user is alerted to the data which has been recorded, and a final display message confirms that the requisite data has been added to the Google Sheet.
+
+The transfer of data to the connected Google Sheet has been tested multiple times using different data, different fee values and different distances travelled. The code is designed to round to two decimal places any floats with more than two decimal places to the right, and this has been tested and verified.
+
+## Bugs  
+This is my first Python project and I discovered a number of bugs during production. Most issues were readily solved with reference to course material, the "Love Sandwiches" project, or trial and error on my part. I have documented the main bugs that required extra resources to solve:
+
+  
+|Bug                       | Where?       | Fix                       |
+|--------------------------|---------------|---------------------------|
+| While loop giving error when invalid input entered  | give_date function    | Add return statement to restart function |
+| Function not converting string to float | give_fee function | Redefine fee_input as initial_fee with float conversion |
+| Error returned for "n" or invalid input in while loop | give_travel function  | Missing parentheses in both return statements |
   
 # Creation & Deployment    
   
@@ -307,27 +338,15 @@ A local clone of this repository can be made on GitHub. Please follow the below 
 
 ## Content References
    - gspread Documentation is used as reference material and guidance throughout the project for the manipulation of data between Python and Google Sheets: [gspread Docs](https://docs.gspread.org/en/latest/index.html)
+
    - Code Institute's 'Love Sandwiches' project for Google Sheets API and Creds Set-Up and for instructions on deployment to Heroku: [Code Institute](https://codeinstitute.net/ie/)
-   - 101 Computing for the type-text effect, 'screen sleep', and 'clear screen' effects used throughout the project: [Python typing text effect](https://www.101computing.net/python-typing-text-effect/)
+
    - StackOverflow for helping me to figure out how to convert string from inputs to floats: [Python: Converting string to integer](https://stackoverflow.com/questions/78756277/python-converting-string-to-integer)
+
+   - General format for README.md and, in particular, directions for creation and deployment therein, are adapted from Amy Richardson's BakeStock respository: [BakeStock](https://github.com/amylour/BakeStock/blob/main/README.md)
   
 
-Additional reading materials:
-   - [Analytics Vidhya](https://www.analyticsvidhya.com/blog/2020/07/read-and-update-google-spreadsheets-with-python/) for more information about Google Sheets and Python Automation.
-   - [GitHub Docs](https://docs.github.com/en) for information on cloning and forking the repository.
-   - [Geeks for Geeks](https://www.geeksforgeeks.org/python-programming-language/?ref=ghm) for additional Python learning.
-
-## Literature
-I used the below book as extra learning material and reference material during the project:  
-
-- [Python Crash Course](https://www.oreilly.com/library/view/python-crash-course/9781492071266/), Author: Eric Matthes, Publisher: No Starch Press, Year: 2019 Edition.
-
-## Media
-ASCII art was used twice in the project and were generated by:
-- [ManyTools.org](https://manytools.org/hacker-tools/ascii-banner/), for the opening banner.
-- [ASCII Art](https://www.asciiart.eu/), for the hidden easter egg.
 
 ## Acknowledgements  
-- Many thanks to my family for their continued support when I need to talk through ideas and bugs, and for testing my work.
-- Thank you to my mentor Rahul Lakhanpal for his support and guidance.
-- Thanks and appreciation to my fellow Code Institute students who have offered great support. 
+- Thanks to Amy Richardson, other tutors, and fellow students at Code Institute for their invaluable guidance, ideas and support.
+- Thank you to my mentor, Dario Carrasquel, for his advice during the project. 
