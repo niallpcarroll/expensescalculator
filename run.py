@@ -124,7 +124,7 @@ def give_travel():
         else:
             print("Invalid input. Please re-enter distance travelled.")
             return give_travel()
-    
+
     travel_dist = float(travel_input)
     travel_total = travel_dist * 0.43
     print(f"Total travel expenses are €{travel_total}")
@@ -138,12 +138,15 @@ def total_fee():
     Returns total amount rounded to two decimal places.
     """
     fee_total = travel_total + initial_fee
-    final_fee = round(fee_total,2)
+    final_fee = round(fee_total, 2)
     print(f"The total fee due is €{final_fee}")
     return final_fee
 
+
 def collect_data():
-    all_data = [(date_input), (location_input.capitalize()), (event_input.capitalize()), (initial_fee), (travel_total), (final_fee)]
+    all_data = [(date_input), (location_input.capitalize()),
+                (event_input.capitalize()),
+                (initial_fee), (travel_total), (final_fee)]
     return all_data
 
 
@@ -167,6 +170,7 @@ def main():
     """
     Run all programme functions
     """
+
 
 date_input = give_date()
 location_input = give_location()

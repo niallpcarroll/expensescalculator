@@ -105,7 +105,7 @@ The data provided by the user is inputted into the respective Google Sheets work
 <br>  
 
 ## Design Choices      
-As this project was focusing on back-end programming, there was no front-end production by myself, a student of the [Code Institute](https://codeinstitute.net/ie/). The CLI code was provided through the use the the CI's [Python Essentials template](https://github.com/Code-Institute-Org/python-essentials-template) and I did not alter the HTML or JavaScript code, choosing to remain with the original view of the interface. The CLI application allowed a display window of 80 characters, and a vertical scrollbar. _(Please refer to the [Creation & Deployment](#creation--deployment) section of this README to learn how to recreate this project yourself.)_
+The CLI code was provided through the use the the CI's [Python Essentials template](https://github.com/Code-Institute-Org/python-essentials-template). I did not alter the given HTML or JavaScript code. _(Refer to the [Creation & Deployment](#creation--deployment) section of this README to learn how to recreate this project.)_
   
 
   <br>
@@ -148,11 +148,8 @@ The next function calculates the total fee due by adding the initial fee entered
 ![Total fee due](documentation)
  
 ### Add data given to Google Sheets  
- 
+Once the total fee due has been calculated, the following results are automatically added to Google Sheets: Date, Location, Event, Initial Fee, Travel Expenses, and Total Fee. 
 
-### Exit  
-In the event that the user wishes to record a further event and travel expenses, the option is provided to begin the application again. Otherwise, the user can choose to exit the application.
-![Exit](documentation)  
  
 
 -----  
@@ -161,11 +158,13 @@ In the event that the user wishes to record a further event and travel expenses,
 
 ## Future Features  
 There are a few features that I feel could benefit from additions in the future:
-...
+- The application could be updated to automatically input fees for certain events for which the user has a set fee, with the user only having to input the initial fee if they choose.
+
+- The scope could also be broadened to update the Google Sheet with other statistics, such as total fees due for all events recorded to that point.
 
   
 # Technologies Used:
-   - Python - Python code written is my own unless referenced in the source code or the below Credits section.
+   - Python - Python code written is my own except where referenced in the credits section.
    - [Lucidchart](https://www.lucidchart.com/pages/) - used to create the flowchart needed during project planning.
    - [GitHub](https://github.com/) - used for hosting the program's source code.
    - [Gitpod](https://www.gitpod.io/) - used as a workspace for developing the code and testing the program.
