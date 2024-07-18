@@ -123,7 +123,7 @@ def give_travel():
         else:
             print("Invalid input. Please re-enter distance travelled.")
             return give_travel
-
+    
     travel_dist = float(travel_input)
     travel_total = travel_dist * 0.43
     print(f"Total travel expenses are €{travel_total}")
@@ -143,10 +143,10 @@ def total_fee():
 
 def collect_data():
     all_data = [(date_input), (location_input.capitalize()), (event_input.capitalize()), (initial_fee), (travel_total), (final_fee)]
-    print(all_data)
+    return all_data
 
 
-def update_worksheet(all_data, expenses_calculator):
+def update_worksheet(all_data):
     """
     Collects data given and adds it to worksheet.
     """
@@ -157,8 +157,8 @@ def update_worksheet(all_data, expenses_calculator):
     print(f"Fee:€ {initial_fee}")
     print(f"Travel expenses: € {travel_total}")
     print(f"Total fee: € {final_fee}")
-    worksheet_to_update = SHEET.worksheet("expenses_calculator")
-    worksheet_to_update.append_row(all_data)
+    expenses_worksheet = SHEET.worksheet("expenses")
+    expenses_worksheet.append_row(all_data)
     
 
 def main():
@@ -173,6 +173,6 @@ initial_fee = give_fee()
 travel_total = give_travel()
 final_fee = total_fee()
 all_data = collect_data()
-# update_worksheet(all_data, expenses_calculator)
+update_worksheet(all_data)
 
 
