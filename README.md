@@ -40,7 +40,7 @@ The Expenses Calculator is designed to be an easy-to-use application to help the
   - It must be easy for the user to navigate.
   - Clear instructions are available to ensure the user will be prompted to enter the relevant data at the correct time.
   - There is an option to re-enter data at each step in case the user enters incorrect information.
-  - Dead ends are avoided by causing each function to re-run in the event of invalid response / input.
+  - Dead ends are avoided by causing functions to re-run in the event of invalid response / input.
 
 
 ## User Stories  
@@ -58,7 +58,7 @@ The Expenses Calculator is designed to be an easy-to-use application to help the
 ## Project Planning  
 The idea for this project came from my current work as an organist. Apart from my usual places of work, my job also takes me to various locations around the country and for different events. I wanted to create an application which would help me to keep track of work completed and which would keep track of fees due for my work. This programme is therefore designed to record information about the date, location, event type, basic fee and distance travelled. Furthermore, based on information provided about distance travelled, it will calculate my travel expenses and then calculate my total expenses by adding my basic fee and travel expenses. It then records this data in a spreadsheet.
  
-The Expenses Calculator was created from this idea and fully planned out using [Lucidchart](https://www.lucidchart.com/) to create a flowchart showing the logic and layout of the application. Once I had investigated the terminal that would run this application, I made sure to stay within it's restrictions and referred back to my flowchart frequently. My main goals for the application were:  
+The Expenses Calculator was created from this idea and fully planned out using [Lucidchart](https://www.lucidchart.com/) to create a flowchart showing the logic and layout of the application. I referred back to this flowchart frequently while writing the code. My main goals for the application were:  
 
 - The first main goal was to have functions with inputs which would record user data.
 - The second important goal was to ensure that the application would accurately transfer the inputted data to the relevant spreadsheet.
@@ -89,7 +89,7 @@ Clear instructions are printed in the terminal instructing the user in how to en
 ## Python Logic  
 As this is my first Python project, I aimed to create a relatively simple application which is practical and relevant to me. Having completed my initial flowchart, I began the process of coding. I created simple functions corresponding to the data I wished to record and transfer to the spreadsheet.
 
-In each function which required user input I made use of if/elif statements to ensure that the user can confirm that they are happy with the data inputted before moving on to the next step. If the user wishes to re-enter data or if they answer anything other than "y/yes" or "n/no" they will likewise be prompted to re-enter the required data.
+In each function which required user input I made use of if/elif statements to ensure that the user can confirm that they are happy with the data inputted before moving on to the next step. If the user wishes to re-enter data or if they answer anything other than "y/yes" or "n/no" they will likewise be prompted to re-enter the required data. In functions where the input needed to be entered in a particular format (i.e. numeric) for the calculation of fees, I used try / except statements to ensure that an incorrect format would not return an error later on.
 
 Throughout the building of the application I tested the functions individually and together to ensure that the flow of the application was correct.
 
@@ -157,7 +157,7 @@ The next function calculates the total fee due by adding the initial fee entered
 ### Add data given to Google Sheets  
 Once the total fee due has been calculated, the following results are automatically added to Google Sheets: Date, Location, Event, Initial Fee, Travel Expenses, and Total Fee. (See image above)
 
-The user can then confirm that the requisite data entered and calculated has been transferred to the corresponding Google Sheet:
+The user can then receives confirmation that the requisite data entered and calculated has been transferred to the corresponding Google Sheet:
 
 ![Google Sheets Data](documentation/google_sheets_data.png)
 
@@ -180,7 +180,7 @@ There are a few features that I feel could benefit from additions in the future:
    - [GitHub](https://github.com/) - used for hosting the program's source code.
    - [Gitpod](https://www.gitpod.io/) - used as a workspace for developing the code and testing the program.
    - Git - used for version control.
-   - [Google Sheets](https://docs.google.com/spreadsheets/) - used for storing edited and saved user data.
+   - [Google Sheets](https://docs.google.com/spreadsheets/) - used for storing user data.
    - [Google Cloud Platform](https://cloud.google.com/) - used to provide the APIs for connecting the data sheets with the Python code.
    - [Heroku](https://heroku.com/apps) - used for deploying the project.
    - [PEP8 Validator](https://pep8ci.herokuapp.com/#) - used for validating the Python code.
@@ -209,6 +209,19 @@ At each stage the user is alerted to the data which has been recorded, and a fin
 For validation of numeric inputs (specifically those needed for calculation of total fees), I had initially hoped to use the PyInputPlus library, which gives an automatic warning if the input is not of the required type. While this worked well in the terminal, I discovered that the library is not supported by Heroku. I therefore altered my code to include try/except statements which ensure that the user can only enter digits, thereby avoiding an error later on when the application attempts to calculate fees. The image below shows how the app responds if the user fails to use the correct input type:
 
 ![try/except statement](documentation/wrong_input.png)
+
+|Feature                      | Tested?     | User Feedback                     |
+|--------------------------|---------------|---------------------------|
+|Enter date | Yes | Asks user if date is correct. If yes, continues to next function; if no, asks to re-enter date. |
+|Enter location | Yes | Asks user if location is correct. If yes, continues to next function; if no, asks to re-enter location. Capitalizes first letter. |
+| Enter event | Yes | Asks user if event entered is correct. If yes, continues to next function; if no, asks to re-enter event. Capitalizes first letter. |
+| Enter fee (numerical format) | Yes | Asks for confirmation that fee is correct. If yes, continues to next function; if no, asks to re-enter fee. |
+| Enter fee (non-numerical format) | Yes | Tells user they must use numerical digits. Restarts input. |
+| Distance travelled (numerical format) | Yes | Asks for confirmation that distance entered is correct. If yes, continues to next function; if no, asks to re-enter distance travelled. |
+| Distance travelled (non-numerical format) | Yes | Tells user they must use numerical digits. Restarts input. |
+| Expenses calculation | Yes | Will return value to a maximum of two decimal places |
+| Transfer data to Google Sheets | Yes | Data successfully transferred to correct columns. Message tells user that data has successfully transferred |
+
 
 The transfer of data to the connected Google Sheet has been tested multiple times using different data, different fee values and different distances travelled. The code is designed to round to two decimal places any floats with more than two decimal places to the right, and this has been tested and verified.
 
@@ -343,8 +356,7 @@ A local clone of this repository can be made on GitHub. Please follow the below 
 # Credits
 
 ## Content References
-   - gspread Documentation is used as reference material and guidance throughout the project for the manipulation of data between Python and Google Sheets: [gspread Docs](https://docs.gspread.org/en/latest/index.html)
-
+   
    - Code Institute's 'Love Sandwiches' project for Google Sheets API and Creds Set-Up and for instructions on deployment to Heroku: [Code Institute](https://codeinstitute.net/ie/)
 
    - StackOverflow for helping me to figure out how to convert string from inputs to floats: [Python: Converting string to integer](https://stackoverflow.com/questions/78756277/python-converting-string-to-integer)
