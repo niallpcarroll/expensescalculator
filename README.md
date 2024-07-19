@@ -72,7 +72,7 @@ I decided to use Google Sheets to store any data that was entered from the termi
 ## Flowchart   
 To help with planning my project, I used Lucidchart to produce a flowchart of my expected functions and their flow.
 
-![Expenses Calculator flowchart](documentation/expenses_calculator.jpeg)  
+![Expenses Calculator flowchart](documentation/expenses_calculator.png)  
 
 
 <br>  
@@ -206,6 +206,10 @@ User validation was checked at each stage. Any time user input is required, the 
 
 At each stage the user is alerted to the data which has been recorded, and a final display message confirms that the requisite data has been added to the Google Sheet.
 
+For validation of numeric inputs (specifically those needed for calculation of total fees), I had initially hoped to use the PyInputPlus library, which gives an automatic warning if the input is not of the required type. While this worked well in the terminal, I discovered that the library is not supported by Heroku. I therefore altered my code to include try/except statements which ensure that the user can only enter digits, thereby avoiding an error later on when the application attempts to calculate fees. The image below shows how the app responds if the user fails to use the correct input type:
+
+![try/except statement](documentation/wrong_input.png)
+
 The transfer of data to the connected Google Sheet has been tested multiple times using different data, different fee values and different distances travelled. The code is designed to round to two decimal places any floats with more than two decimal places to the right, and this has been tested and verified.
 
 ## Bugs  
@@ -217,6 +221,8 @@ This is my first Python project and I discovered a number of bugs during product
 | While loop giving error when invalid input entered  | give_date function    | Add return statement to restart function |
 | Function not converting string to float | give_fee function | Redefine fee_input as initial_fee with float conversion |
 | Error returned for "n" or invalid input in while loop | give_travel function  | Missing parentheses in both return statements |
+| PyInputPlus library incompatible with Heroku | Import library | Remove PyInputPlus and used try/except statements instead |
+| Bare Except warning in Python Linter | give_fee & give_distance functions | Change "except" to "except Exception" |
   
 # Creation & Deployment    
   
@@ -344,6 +350,8 @@ A local clone of this repository can be made on GitHub. Please follow the below 
    - StackOverflow for helping me to figure out how to convert string from inputs to floats: [Python: Converting string to integer](https://stackoverflow.com/questions/78756277/python-converting-string-to-integer)
 
    - General format for README.md and, in particular, directions for creation and deployment therein, are adapted from Amy Richardson's BakeStock respository: [BakeStock](https://github.com/amylour/BakeStock/blob/main/README.md)
+
+   - Although I did not use it in the end due to compatability issues, I learned about using the PyInputPlus library from _Automate the Boring Stuff with Python_ by Al Sweigart: [Chapter 8](https://automatetheboringstuff.com/2e/chapter8/)
   
 
 
