@@ -1,6 +1,6 @@
 import gspread
 from google.oauth2.service_account import Credentials
-import pyinputplus as pyip
+import pyinputplus
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
