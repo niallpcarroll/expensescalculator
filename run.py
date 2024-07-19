@@ -84,6 +84,7 @@ def give_event():
 def give_fee():
     """
     Function to prompt user to insert fee amount.
+    Try statement to check for numeric value input.
     While loop to ask user to confirm data.
     """
 
@@ -93,7 +94,7 @@ def give_fee():
         fee_input = input(f"The fee for this event is: € \n")
         try:
             fee_input = float(fee_input)
-        except:
+        except Exception:
             print("Please enter numeric digits")
             continue
         break
@@ -115,6 +116,7 @@ def give_fee():
 def give_travel():
     """
     Function to prompt user to insert distance travelled in kilometers.
+    Try statement to check for numeric value input.
     While loop to ask user to confirm data given.
     Convert input to float and calculate travel expenses.
     """
@@ -124,10 +126,10 @@ def give_travel():
         travel_input = input(f"The distance travelled is: (km) \n")
         try:
             travel_input = float(travel_input)
-        except:
+        except Exception:
             print("Please enter numeric digits")
             continue
-        break    
+        break
     print(f"You travelled {travel_input}km for this event")
     correct_input = input("Is this correct? y/n \n")
     while True:
