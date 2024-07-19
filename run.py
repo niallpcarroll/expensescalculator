@@ -1,5 +1,6 @@
 import gspread
 from google.oauth2.service_account import Credentials
+import pyinputplus as pyip
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -88,7 +89,7 @@ def give_fee():
 
     print("Please enter the fee for this event.")
     print("Fees should be in Euro (€)")
-    fee_input = input(f"The fee for this event is: € \n")
+    fee_input = pyip.inputNum(f"The fee for this event is: € \n")
     print(f"The fee you have recorded for this event is: €{fee_input}")
     correct_input = input("Is this correct? y/n \n")
     while True:
@@ -112,7 +113,7 @@ def give_travel():
     """
     print("Please enter the distance travelled for this event.")
     print("Distance should be given in kilometers")
-    travel_input = input(f"The distance travelled is: (km) \n")
+    travel_input = pyip.inputNum(f"The distance travelled is: (km) \n")
     print(f"You travelled {travel_input}km for this event")
     correct_input = input("Is this correct? y/n \n")
     while True:
